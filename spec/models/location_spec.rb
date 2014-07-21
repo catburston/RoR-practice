@@ -22,4 +22,16 @@ RSpec.describe Location, :type => :model do
     end
   end
 
+  describe "testing in_spain? method" do
+    Location.create name: 'MOB', city: 'Barcelona', country: 'Spain', description: "Barcelona Main Station"
+    Location.create name: 'Sants', city: 'Barcelona', country: 'Spain'
+    Location.create name: 'Tramway Hotel', city: 'Melbourne', country: 'Australia', zip_code: 3070, description: "Best pub in Melbourne"
+    Location.create name: 'Plow St', city: 'Melbourne', country: 'Australia', zip_code: 3071, description: "Thornbury House"
+    Location.create name: 'Pioch', city: 'Montpellier', country: 'France', zip_code: 34090, description: "Our flat in Monty P"
+    Location.create name: 'Hbf', description: "Main Station"
+    it "only shows locations with Country = Spain" do
+      expect(Location.in_spain?).to eq(Location.where(country: 'Spain'))
+    end
+  end
+
 end

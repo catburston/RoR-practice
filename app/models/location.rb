@@ -5,7 +5,12 @@ class Location < ActiveRecord::Base
     Location.where(id:i).first
   end
 
-  def self.last_created(x)
-    Location.order(created_at: :desc).limit(x)
+  # def self.last_created(x)
+  #   Location.order(created_at: :desc).limit(x)
+  # end
+  scope :last_created, -> (x) { order(created_at: :desc).limit(x) }
+
+  def self.in_spain?
+    Location.where(country: 'Spain')
   end
 end
