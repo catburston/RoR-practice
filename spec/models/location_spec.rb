@@ -10,4 +10,16 @@ RSpec.describe Location, :type => :model do
     end
   end
 
+  describe "testing last_created method" do
+    Location.create name: 'Dom', city: 'Koeln', country: 'Germany', zip_code: 50660, description: "Koeln Cathedral"
+    Location.create name: 'Sants', city: 'Barcelona', country: 'Spain'
+    Location.create name: 'Tramway Hotel', city: 'Melbourne', country: 'Australia', zip_code: 3070, description: "Best pub in Melbourne"
+    Location.create name: 'Plow St', city: 'Melbourne', country: 'Australia', zip_code: 3071, description: "Thornbury House"
+    Location.create name: 'Pioch', city: 'Montpellier', country: 'France', zip_code: 34090, description: "Our flat in Monty P"
+    Location.create name: 'Hbf', description: "Main Station"
+    it "last_created functions as .order(created_at: :desc).limit(3)" do
+      expect(Location.last_created(3)).to eq(Location.order(created_at: :desc).limit(3))
+    end
+  end
+
 end

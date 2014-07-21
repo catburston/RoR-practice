@@ -1,0 +1,20 @@
+<!Doctype html>
+
+<html>
+  <head><title>MeetMe Index</title></head>
+  <body>
+    <h1>MeetMe Locations</h1>
+    <ul>
+      <% @locations.each do |location| %>
+        <li><%= location.name %>
+          <% unless location.city == nil %>
+            <%= " - " + location.city %>
+          <% end %>
+          <% unless location.country == nil %>
+            <%= ", " + location.country %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </body>
+</html>

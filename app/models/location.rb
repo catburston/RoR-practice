@@ -4,4 +4,8 @@ class Location < ActiveRecord::Base
   def self.iron_find(i)
     Location.where(id:i).first
   end
+
+  def self.last_created(x)
+    Location.order(created_at: :desc).limit(x)
+  end
 end
