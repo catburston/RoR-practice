@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'home' => 'home#welcome'
   get 'contact' => 'home#contact'
   get 'locations' => 'locations#index'
+  get 'locations/:id' => 'locations#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
