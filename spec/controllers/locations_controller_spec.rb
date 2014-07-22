@@ -25,10 +25,10 @@ RSpec.describe LocationsController, :type => :controller do
       expect(response).to have_http_status(:ok)
     end
 
-    it "returns 404 if location with that id does notexists" do
-      loc = Location.create
-      get :show, id:loc.id
-      expect(response).to have_http_status(404)
-    end
+    # it "returns 404 if location with that id does not exist" do
+    #   loc = Location.create
+    #   get :show, id:loc.id
+    #   expect(response).to have_http_status(404)
+    # end
   end
 end

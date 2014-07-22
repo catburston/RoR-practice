@@ -1,0 +1,15 @@
+<h1>MeetMe Visits</h1>
+    <ul>
+      <% @visits.each do |visit| %>
+        <li><%= visit.user_name %> was/will be at <%= visit.location.name %> from <%= visit.from_date %> until <%= visit.to_date %>
+        </li>
+      <% end %>
+    </ul>
+
+    <h2>Visits this Month</h2>
+    <ul>
+      <% @monthly_visits.each do |visit| %>
+        <li><%= visit.user_name %> was/will be at <%= visit.location.name %> from <%= visit.from_date %> until <%= visit.to_date %>
+        </li>
+      <% end %>
+    </ul>
