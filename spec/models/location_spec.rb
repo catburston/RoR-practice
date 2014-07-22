@@ -40,7 +40,7 @@ RSpec.describe Location, :type => :model do
       Visit.create location_id: loc3.id, user_name: 'Cat', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
       Visit.create location_id: loc3.id, user_name: 'Tom', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
       Visit.create location_id: loc3.id, user_name: 'Dario', from_date: (DateTime.now - 8.hours), to_date: (DateTime.now - 7.hours)
-      expect(loc3.monthly_visits(7,2014)).to eq(3)
+      expect(loc3.monthly_visits(7,2014).count).to eq(3)
     end
   end
 

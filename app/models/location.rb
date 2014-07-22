@@ -18,7 +18,7 @@ class Location < ActiveRecord::Base
 
   def monthly_visits(m,y)
     #better query because it's not running through all visits then querying on locations
-    self.visits.where('extract(year from from_date) = ?', y).where('extract(month from from_date) = ?', m).count
+    self.visits.where('extract(year from from_date) = ?', y).where('extract(month from from_date) = ?', m)
     # Visit.where('extract(year from from_date) = ?', y).where('extract(month from from_date) = ?', m).where(location_id:self.id).count
   end
 end
