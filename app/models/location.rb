@@ -1,6 +1,12 @@
 class Location < ActiveRecord::Base
   #set up relationship between visits and locations
   has_many :visits
+  #initial validation
+  validates :name, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :city, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :country, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :zip_code, presence: true, length: { maximum: 5 }, numericality: { only_integer: true }
+  validates :description, presence: true, length: { maximum: 255 }
   # because we created the class Locations, this command is not necessary
   #set_table_name 'locations'
   def self.iron_find(i)

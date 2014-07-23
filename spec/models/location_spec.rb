@@ -34,13 +34,84 @@ RSpec.describe Location, :type => :model do
     end
   end
 
-  describe "find visits for a location" do
-    it "returns a count of all the visits for a location for a month" do
-      loc3 = Location.create name: 'XYZ Hotel', city: 'Melbourne', country: 'Australia', zip_code: 3070, description: "Best pub in Melbourne"
-      Visit.create location_id: loc3.id, user_name: 'Cat', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
-      Visit.create location_id: loc3.id, user_name: 'Tom', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
-      Visit.create location_id: loc3.id, user_name: 'Dario', from_date: (DateTime.now - 8.hours), to_date: (DateTime.now - 7.hours)
-      expect(loc3.monthly_visits(7,2014).count).to eq(3)
+  # describe "find visits for a location" do
+  #   it "returns a count of all the visits for a location for a month" do
+  #     loc10 = Location.create name: 'XYZ Hotel', city: 'Melbourne', country: 'Australia', zip_code: 3070, description: "Best pub in Melbourne"
+  #     Visit.create location_id: loc10.id, user_name: 'Cat', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
+  #     Visit.create location_id: loc10.id, user_name: 'Tom', from_date: (DateTime.now - 3.hours), to_date: (DateTime.now)
+  #     Visit.create location_id: loc10.id, user_name: 'Dario', from_date: (DateTime.now - 8.hours), to_date: (DateTime.now - 7.hours)
+  #     expect(loc10.monthly_visits(7,2014).count).to eq(3)
+  #   end
+  # end
+
+  describe "test validation of name" do
+    it "must be present" do
+      location = Location.new
+      expect(location.valid?).to eq (false)
+    end
+    it "must be less than 30 characters" do
+      location = Location.new name: 'wwwwwooooorrrrrrfffffnnnnnssssssllllll'
+      expect(location.valid?).to eq (false)
+    end
+    it "must be only alphanumeric" do
+      location = Location.new name: '123'
+      expect(location.valid?).to eq (false)
+    end
+  end
+
+  describe "test validation of city" do
+    it "must be present" do
+      location = Location.new
+      expect(location.valid?).to eq (false)
+    end
+    it "must be less than 30 characters" do
+      location = Location.new city: 'wwwwwooooorrrrrrfffffnnnnnssssssllllll'
+      expect(location.valid?).to eq (false)
+    end
+    it "must be only alphanumeric" do
+      location = Location.new city: '123'
+      expect(location.valid?).to eq (false)
+    end
+  end
+
+  describe "test validation of country" do
+    it "must be present" do
+      location = Location.new
+      expect(location.valid?).to eq (false)
+    end
+    it "must be less than 30 characters" do
+      location = Location.new country: 'wwwwwooooorrrrrrfffffnnnnnssssssllllll'
+      expect(location.valid?).to eq (false)
+    end
+    it "must be only alphanumeric" do
+      location = Location.new country: '123'
+      expect(location.valid?).to eq (false)
+    end
+  end
+
+  describe "test validation of zip_code" do
+    it "must be present" do
+      location = Location.new
+      expect(location.valid?).to eq (false)
+    end
+    it "must be less than 6 characters" do
+      location = Location.new zip_code: '1234567'
+      expect(location.valid?).to eq (false)
+    end
+    it "must be only numeric" do
+      location = Location.new zip_code: 'abc'
+      expect(location.valid?).to eq (false)
+    end
+  end
+
+  describe "test validation of description" do
+    it "must be present" do
+      location = Location.new
+      expect(location.valid?).to eq (false)
+    end
+    it "must be less than 256 characters" do
+      location = Location.new description: '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890abcdefghijklmnop...................................................'
+      expect(location.valid?).to eq (false)
     end
   end
 
