@@ -2,7 +2,7 @@
   <h1>MeetMe Locations</h1>
   <ul>
     <% @locations.each do |location| %>
-      <li><%= link_to location.name, location_visits_path(location) %>
+      <li><%= link_to location.name, location_path(location) %>
         <% unless location.city == nil %>
           <%= " - " + location.city %>
         <% end %>
