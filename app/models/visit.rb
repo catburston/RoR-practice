@@ -1,10 +1,11 @@
 class Visit < ActiveRecord::Base
   #set up relationship between visits and locations
   belongs_to :location
+  belongs_to :user
   #validation
   validates :from_date, presence: true
   validates :to_date, presence: true
-  validates :user_name, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :user_id, presence: true
   validates :location_id, presence: true, numericality: { only_integer: true }
   validate :from_date_in_future
   validate :from_date_is_before_to_date

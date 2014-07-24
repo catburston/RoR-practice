@@ -1,8 +1,9 @@
 class Location < ActiveRecord::Base
   #set up relationship between visits and locations
   has_many :visits
+  has_many :users
   #initial validation
-  validates :name, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+  validates :name, presence: true, length: { maximum: 30 }
   validates :city, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
   validates :country, presence: true, length: { maximum: 30 }, format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
   validates :zip_code, presence: true, length: { maximum: 5 }, numericality: { only_integer: true }

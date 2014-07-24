@@ -115,3 +115,14 @@ hr {
 input, select {
     vertical-align:middle;
 }
+
+/* MY CSS */
+* {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    width: 600px;
+    height: 100%;
+    }

@@ -1,0 +1,23 @@
+<div class="user edit">
+  <% if @user.errors.any? %>
+    <ul>
+      <% @user.errors.full_messages.each do | error_message | %>
+      <li><%= error_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_for [ @user ] do | f | %>
+    <%= f.label :user_name %><%= f.text_field :user_name %>
+    <br />
+    <%= f.label :user_firstname %><%= f.text_field :user_firstname %>
+    <br />
+    <%= f.label :user_lastname %><%= f.text_field :user_lastname %>
+    <br />
+    <%= f.submit "Update user" %>
+  <% end %>
+
+  <hr>
+
+  <%= link_to 'Cancel', users_path(@user) %>
+</div>

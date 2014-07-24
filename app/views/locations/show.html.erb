@@ -1,1 +1,9 @@
-<h1>MeetMe Location</h1>
+<div class="location show">
+  <h1>MeetMe Location</h1>
+  <strong>Location Name: </strong><%= @location.name %> <br>
+  <strong>City: </strong><%= @location.city %><br>
+  <strong>Country: </strong><%= @location.country %><br>
+  <strong>Description: </strong><%= @location.description %>
+  <hr>
+  <%= link_to 'See visits', location_visits_path(@location) %>
+</div>

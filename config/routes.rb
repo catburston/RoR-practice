@@ -4,9 +4,14 @@ Rails.application.routes.draw do
   resources :locations do
     resources :visits
   end
-
+  resources :users do
+    resources :visits
+  end
   get 'home' => 'home#welcome'
   get 'contact' => 'home#contact'
+
+  # get 'users' => 'users#index'
+  # get 'users/:id' => 'users#show'
 
   # get 'locations' => 'locations#index'
   # get 'locations/:id' => 'locations#show'
