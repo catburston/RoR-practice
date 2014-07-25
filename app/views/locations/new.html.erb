@@ -1,30 +1,7 @@
 <div class="location new">
+  <h1>New MeetMe Location</h1>
   <%= flash_message %>
 
-  <% if @location.errors.any? %>
-    <ul>
-      <% @location.errors.full_messages.each do | error_message | %>
-      <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <%= render 'shared/location_form' %>
 
-
-  <%= form_for [ @location ] do | f | %>
-    <%= f.label :name %><%= f.text_field :name %>
-    <br />
-    <%= f.label :city %><%= f.text_field :city %>
-    <br />
-    <%= f.label :country %><%= f.text_field :country %>
-    <br />
-    <%= f.label :zip_code %><%= f.text_field :zip_code %>
-    <br />
-    <%= f.label :description %><%= f.text_area :description %>
-    <br />
-    <%= f.submit "Save Location" %>
-  <% end %>
-
-  <hr>
-
-  <%= link_to 'Cancel', locations_path(@location) %>
 </div>

@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>MeetMe App</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>MeetMe App</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= yield %>
+    <header>
+      <ul class="header_bar">
+        <li class="header_bar_item">MeetMe Home</li>
+        <li class="header_bar_item">All Locations</li>
+        <li class="header_bar_item">Contact Us</li>
+      </ul>
+    </header>
 
-</body>
+  <%= yield %>
+
+  </body>
 </html>

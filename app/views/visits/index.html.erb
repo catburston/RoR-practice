@@ -7,19 +7,14 @@
     <ul>
       <% @location.monthly_visits(7,2014).each do |visit| %>
         <li>
-          <strong>User: </strong><a href="<%= location_visit_path(@location, visit) %>"><%= visit.user.user_name %> will be here</a>
-          <br />
-          <strong>From: </strong> <%= visit.from_date %>
-          <br />
-          <strong>Until: </strong><%= visit.to_date %>
-          <br />
-          <%= link_to 'new', new_location_visit_path(@location) %> <%= link_to 'edit', edit_location_visit_path(@location, visit) %> <%= link_to 'delete', location_visit_path(@location, visit), method: 'delete', confirm: "Are you sure you want to delete this visit?" %>
+          <p><strong>User: </strong><a href="<%= location_visit_path(@location, visit) %>"><%= visit.user.user_name %> will be visiting</a></p>
+          <p><strong>From: </strong> <%= visit.from_date %></p>
+          <p><strong>Until: </strong><%= visit.to_date %></p>
+          <p><%= link_to 'edit', edit_location_visit_path(@location, visit) %> <%= link_to 'delete', location_visit_path(@location, visit), method: 'delete', confirm: "Are you sure you want to delete this visit?" %></p>
         </li>
       <% end %>
     </ul>
     <hr>
 
-    <%= link_to 'Add a new visit for this Location', new_location_visit_path(@location) %>
-    <br>
-    <%= link_to 'Return to all MeetMe Locations', locations_path %>
+    <p><%= link_to 'Add a new visit for this Location', new_location_visit_path(@location) %> <%= link_to 'Return to all MeetMe Locations', locations_path %></p>
 </div>

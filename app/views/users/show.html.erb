@@ -3,17 +3,14 @@
 
   <h1>MeetMe User <em><%= @user.user_name %></em></h1>
 
-  <strong><%= @user.user_name %></strong> (<%= @user.user_firstname %> <%= @user.user_lastname %>)
-  <br>
-  <strong>User since: </strong><%= @user.created_at %>
+  <p><strong><%= @user.user_name %></strong> (<%= @user.user_firstname %> <%= @user.user_lastname %>)</p>
+  <p><strong>User since: </strong><%= @user.created_at %></p>
 
   <hr>
 
-  <%= link_to 'edit', edit_user_path(@user) %>
-  <br>
-  <%= link_to 'delete', user_path(@user), method: 'delete', confirm: "Are you sure you want to delete this user?" %>
+  <p><%= link_to 'edit', edit_user_path(@user) %> <%= link_to 'delete', user_path(@user), method: 'delete', confirm: "Are you sure you want to delete this user?" %></p>
 
   <hr>
 
-  <%= link_to 'Return to all Users', users_path(@user) %>
+  <p><%= link_to 'Return to all Users', users_path %></p>
 </div>

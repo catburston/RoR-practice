@@ -3,17 +3,17 @@
 
   <h1>MeetMe Visit</h1>
 
-  <h2>Location: </h2><%= @visit.location.name %>
+  <h2>Location: <%= @visit.location.name %></h2>
+  <h4><%= @visit.location.city %>, <%= @visit.location.country %></h4>
 
-  <p><%= @visit.user.user_name %>, <%= @visit.from_date %></a> until <%= @visit.to_date %></p>
+  <p><%= @visit.user.user_name%> will be here from:</p>
+  <p><%= @visit.from_date %></a> until <%= @visit.to_date %></p>
 
   <hr />
 
-  <%= link_to 'edit', edit_location_visit_path(@location, @visit) %>
-  <br>
-  <%= link_to 'delete', location_visit_path(@location, @visit), method: 'delete', confirm: "Are you sure you want to delete this visit?" %>
+  <p><%= link_to 'edit', edit_location_visit_path(@location, @visit) %> <%= link_to 'delete', location_visit_path(@location, @visit), method: 'delete', confirm: "Are you sure you want to delete this visit?" %></p>
 
   <hr>
 
-  <%= link_to 'Return to all Visits', location_visits_path(@location) %>
+  <p><%= link_to 'Return to all Visits', location_visits_path(@location) %></p>
 </div>

@@ -1,24 +1,5 @@
-
 <div class="visit edit">
-  <% if @visit.errors.any? %>
-    <ul>
-      <% @visit.errors.full_messages.each do | error_message | %>
-      <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
+  <h1>Edit MeetMe Visit</h1>
+  <%= render 'shared/visit_form' %>
 
-  <%= form_for [ @location, @visit ] do | f | %>
-    <%= f.label :user_name %><%= f.text_field :user_name %>
-    <br />
-    <%= f.datetime_select( :from_date, default: Time.now + 1.day ) %>
-    <br />
-    <%= f.datetime_select( :to_date, default: Time.now + 1.day ) %>
-    <br />
-    <%= f.submit "Update visit" %>
-  <% end %>
-
-  <hr>
-
-  <%= link_to 'Cancel', location_visits_path(@location) %>
 </div>

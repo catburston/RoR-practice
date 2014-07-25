@@ -152,11 +152,52 @@ a {
     -moz-border-radius: 4px;
     border-radius: 4px;
     background: #3A61FF;
-    padding:4px;
+    padding:4px 6px;
     color:#fff;
     text-decoration: none;
 }
 
 a:hover {
     background: #2DC5FF;
+}
+
+ul.header_bar {
+    width: 100%;
+    display: inline-block;
+    background: #3629E8;
+    border-bottom: 2px solid #111;
+}
+
+li.header_bar_item {
+    float: left;
+    margin: 0;
+    padding: 40px 25px 10px 0;
+    text-align: left;
+    background: #742DFF;
+    color: #fff;
+    border-right: 2px solid #111;
+}
+
+p {
+    line-height: 1.8em;
+}
+
+label {
+    width: 120px;
+    display: inline-block;
+}
+
+input, textarea {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 2px solid #3629E8;
+    padding:4px 6px;
+    margin: 0 0 10px 0;
+}
+
+input[type=submit] {
+    background: #3629E8;
+    color:#fff;
+    text-decoration: none;
 }

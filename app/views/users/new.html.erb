@@ -1,26 +1,6 @@
 <div class="user new">
   <%= flash_message %>
+  <h1>New MeetMe User</h1>
+  <%= render 'shared/user_form' %>
 
-  <% if @user.errors.any? %>
-    <ul>
-      <% @user.errors.full_messages.each do | error_message | %>
-      <li><%= error_message %></li>
-      <% end %>
-    </ul>
-  <% end %>
-
-
-  <%= form_for [ @user ] do | f | %>
-    <%= f.label :user_name %><%= f.text_field :user_name %>
-    <br />
-    <%= f.label :user_firstname %><%= f.text_field :user_firstname %>
-    <br />
-    <%= f.label :user_lastname %><%= f.text_field :user_lastname %>
-    <br />
-    <%= f.submit "Save user" %>
-  <% end %>
-
-  <hr>
-
-  <%= link_to 'Cancel', users_path(@user) %>
 </div>
