@@ -10,13 +10,14 @@
 
     <header>
       <ul class="header_bar">
-        <li class="header_bar_item">MeetMe Home</li>
-        <li class="header_bar_item">All Locations</li>
-        <li class="header_bar_item">Contact Us</li>
+        <li class="header_bar_item home"><%= link_to(image_tag("meetme.png", :alt => "MeetMe Home", :title => "MeetMe Home"), "/", :class => "home") %></li>
+        <li class="header_bar_item"><%= link_to 'All Locations', locations_path %></li>
+        <li class="header_bar_item"><%= link_to 'Contact Us', contact_path %></li>
       </ul>
     </header>
-
-  <%= yield %>
+    <div class="main-content">
+      <%= yield %>
+    </div>
 
   </body>
 </html>
