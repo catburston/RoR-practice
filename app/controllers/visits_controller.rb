@@ -6,9 +6,9 @@ class VisitsController < ApplicationController
   end
 
   def show
-    @location = Location.find(params[:location_id])
+    @location = Location.find(params[:id])
     @visit = Visit.find(params[:id])
-    #@user = User.find()
+    @user = @visit.user.id
     render 'not_found', status:404 unless @visit
   end
 

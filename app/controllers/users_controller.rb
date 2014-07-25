@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+    @visits = @user.visits
+    #@locations = @visits.location.pluck(:location_id)
     render 'not_found', status:404 unless @user
   end
 

@@ -201,3 +201,27 @@ input[type=submit] {
     color:#fff;
     text-decoration: none;
 }
+
+a.edit {
+    background: #4b4b4b;
+}
+
+a.delete {
+    background: #333;
+}
+
+a.edit:hover, a.delete:hover {
+    color:#2DC5FF;
+}
+
+a.location {
+
+}
+
+a.user {
+
+}
+
+a.visit {
+    
+}
